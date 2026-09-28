@@ -1,0 +1,35 @@
+[
+  {
+    "type": "starred",
+    "created_at": "2026-09-24T14:20:00Z",
+    "repo": {
+      "name": "vite",
+      "full_name": "vitejs/vite",
+      "html_url": "https://github.com/vitejs/vite",
+      "description": "Next generation frontend tooling.",
+      "language": "TypeScript"
+    }
+  },
+  {
+    "type": "starred",
+    "created_at": "2026-09-21T09:45:00Z",
+    "repo": {
+      "name": "ripgrep",
+      "full_name": "BurntSushi/ripgrep",
+      "html_url": "https://github.com/BurntSushi/ripgrep",
+      "description": "A line-oriented search tool that recursively searches your current directory for a regex pattern.",
+      "language": "Rust"
+    }
+  },
+  {
+    "type": "starred",
+    "created_at": "2026-09-18T17:10:00Z",
+    "repo": {
+      "name": "svelte",
+      "full_name": "sveltejs/svelte",
+      "html_url": "https://github.com/sveltejs/svelte",
+      "description": "Cybernetically enhanced web apps.",
+      "language": "TypeScript"
+    }
+  }
+]
