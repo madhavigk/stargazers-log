@@ -62,6 +62,26 @@ h2 {
 
 #status {
   color: #53615c;
+  font-size: 0.95rem;
+  font-style: italic;
+  padding: 12px;
+  border-radius: 4px;
+  background: #f0f3f1;
+  border-left: 3px solid #28715f;
+}
+
+#status[aria-busy="true"] {
+  color: #28715f;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
 }
 
 .event-list {
@@ -72,11 +92,27 @@ h2 {
   list-style: none;
 }
 
+.event-list:empty::after {
+  content: "No repositories to display yet.";
+  display: block;
+  padding: 24px 20px;
+  text-align: center;
+  color: #53615c;
+  font-style: italic;
+  grid-column: 1 / -1;
+}
+
 .event-list li {
   padding: 18px 20px;
   border: 1px solid #d6ded8;
   border-left: 4px solid #28715f;
   background: #fff;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.event-list li:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-color: #175744;
 }
 
 .event-heading {
@@ -94,6 +130,19 @@ h2 {
   overflow-wrap: anywhere;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.event-heading a:hover,
+.event-heading a:focus {
+  color: #0f3d2e;
+  text-decoration: underline;
+}
+
+.event-heading a:focus {
+  outline: 2px solid #28715f;
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 .event-heading time,
@@ -105,10 +154,24 @@ h2 {
 .event-description {
   margin: 10px 0;
   line-height: 1.5;
+  color: #404d4b;
+}
+
+.event-description:empty::before {
+  content: "No description available.";
+  color: #999;
+  font-style: italic;
 }
 
 .event-meta {
   margin: 0;
+  font-weight: 500;
+}
+
+.event-meta:empty::before {
+  content: "Unknown language";
+  color: #999;
+  font-style: italic;
 }
 
 @media (max-width: 520px) {
@@ -119,5 +182,24 @@ h2 {
 
   .event-list li {
     padding: 16px;
+  }
+
+  .event-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .event-heading time {
+    order: 3;
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
